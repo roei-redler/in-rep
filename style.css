@@ -3,7 +3,7 @@ body{
 	  background-image: url('img/wallpaperflare.com_wallpaper.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-   font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;	
+   font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -34,7 +34,7 @@ h4{
 }
 
 .input-file{
-	display:none;  
+	display:none;
 }
 
 .input-btn{
@@ -57,7 +57,7 @@ h4{
     padding: 10px;
     border-radius: 20px;
     margin: 10px;
-    margin-top: -20px 
+    margin-top: -20px
 }
 
 .upload{
@@ -199,29 +199,118 @@ span{
     top: 5px;
 }
 
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: #fefefe;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 20px;
+  display: flex;
+
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#myBtn {
+  cursor: pointer;
+}
+
+#myBtn:hover, #myBtn:focus {
+  cursor: pointer;
+}
+
+.github-link {
+
+
+  text-decoration: none;
+  color: #333;
+}
+
+.github-link i {
+
+  font-size: 18px;
+}
+.github-icon {
+  width: 25px;
+  height: 25px;
+}
+.github-icon2 {
+  width: 90px;
+  height: 90px;
+}
 /* Media Queries for Responsive Design */
 
 @media screen and (max-width: 800px) {
 
+	.modal-content {
+		background-color: #fefefe;
+	  margin: auto;
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 60%;
+	  border-radius: 20px;
+	  display: flex;
+
+
+	}
 	.main-box{
 		height: auto;
 	}
-	
+
 	.cover{
 		height: 150px;
 	}
-	
+
 	.dp{
 		height: 100px;
 		width: 100px;
 		margin-left: 10px;
 		margin-top: -80px;
 	}
-	
+
 	.main-content{
 		padding: 0px 15px;
 	}
-	
+
 	.current{
 		width: 50%;
 		margin-left: 0;
@@ -229,21 +318,21 @@ span{
 		  display: flex;
   flex-wrap: wrap;
 	}
-	
+
 	.cmpy{
 		font-size: 14px;
 	}
-	
+
 	.box{
 		flex-direction: column;
 	}
-	
+
 	.icon{
 		height: 40px;
 		width: 40px;
 		margin-right: 10px;
 	}
-	
+
 	.align{
 		flex-direction: column;
 		  display: flex;
@@ -253,40 +342,55 @@ span{
 	.align .icon {
   margin-left: -20px;
 }
-	
+
 	.but{
 		margin-left: 0;
 		margin-top: 20px;
 	}
-	
+
 	.pen-btn.upload{
 		right: 5%;
 		top: 55%;
 	}
-	
+
 }
 
 @media screen and (max-width: 600px) {
 
+	.modal-content {
+		background-color: #fefefe;
+	  margin: auto;
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 40%;
+	  border-radius: 20px;
+	  display: flex;
+
+
+	}
 	.main-box{
 		height: auto;
 	}
-	
+
 	.cover{
 		height: 100px;
 	}
-	
+
 	.dp{
 		height: 80px;
 		width: 80px;
 		margin-left: 10px;
 		margin-top: -60px;
 	}
-	
+
 	.main-content{
 		padding: 0px 10px;
 	}
-	
+
 	.current{
 		width: 70%;
 		margin-left: 0;
@@ -294,23 +398,23 @@ span{
 		  display: flex;
   flex-wrap: wrap;
 	}
-	
+
 	.cmpy{
 		font-size: 12px;
 		margin-left: 15px;
 		margin-top: -20px;
 	}
-	
+
 	.box{
 		flex-direction: column;
 	}
-	
+
 	.icon{
 		height: 30px;
 		width: 30px;
 		margin-right: 10px;
 	}
-	
+
 	.align{
 		flex-direction: column;
 		  display: flex;
@@ -320,16 +424,16 @@ span{
 	.align .icon {
   margin-left: -20px;
 }
-	
+
 	.but{
 		margin-left: 10%;
 		margin-top: 20px;
 	}
-	
-	
+
+
 	.pen-btn.upload{
 		right: 10px;
 		top: 55%;
 	}
-	
+
 }

@@ -17,5 +17,5 @@ $("#imgInp").change(function(){
 
 document.getElementById("input_btn")
 .addEventListener('click',function(){
-  document.getElementById("imgInp").click();  
+  document.getElementById("imgInp").click();
 },false);
