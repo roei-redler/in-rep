@@ -448,7 +448,7 @@ span{
 
 @media (max-width: 430px) {
   .button-container {
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
   }
 }
