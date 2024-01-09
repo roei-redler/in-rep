@@ -21,9 +21,6 @@ h4{
     margin: 0;
     margin-bottom: 20px;
 }
-.but1 {
-    margin-bottom: 20px;
-}
 .main-box{
 	max-width: 900px;
     /*width: 100%;*/
@@ -139,6 +136,7 @@ h4{
     color: rgba(0,0,0,0.6);
     margin-left: 10px;
     padding: 0px 20px;
+    margin-bottom: 20px;
 }
 
 .clr{
