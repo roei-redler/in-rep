@@ -23,7 +23,9 @@
       <input type='file' class='input-file' id="imgInp">
       <!--<button class='input-btn upload' id='input_btn'><i class="fa fa-camera cam"></i></button>-->
      <img class="cover" id="blah" src="img/Linkedin cover.jpg">
-     <div class="dp-container"><img class="dp" src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg"></div>
+<div class="dp-container">
+  <img class="dp" id="profile-image" src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg">
+</div>
      <!--<button class='pen-btn upload'><i class="fa fa-pencil pen"></i></button>-->
 
 
@@ -122,6 +124,22 @@
       modal.style.display = "none";
     }
   }
+	    var images = [
+    "https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg",
+    "https://cdn0.iconfinder.com/data/icons/avatars-icons/110/avatar_profile_face_shirt_teenager_boy_negro-512.png"
+  ];
+
+  var imageIndex = 0;
+  var profileImage = document.getElementById("profile-image");
+
+  setInterval(function() {
+    profileImage.style.opacity = 0;
+    setTimeout(function() {
+      imageIndex = (imageIndex + 1) % images.length;
+      profileImage.src = images[imageIndex];
+      profileImage.style.opacity = 1;
+    }, 500);
+  }, 4000);
   </script>
 </body>
 </html>
