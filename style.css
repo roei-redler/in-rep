@@ -437,3 +437,18 @@ span{
 	}
 
 }
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container a {
+  margin: 5px;
+}
+
+@media (max-width: 430px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
