@@ -439,7 +439,8 @@ span{
 }
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  
 }
 
 .button-container a {
@@ -450,5 +451,6 @@ span{
   .button-container {
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
   }
 }
