@@ -21,7 +21,9 @@ h4{
     margin: 0;
     margin-bottom: 20px;
 }
-
+.but1 {
+    margin-bottom: 20px;
+}
 .main-box{
 	max-width: 900px;
     /*width: 100%;*/
