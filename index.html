@@ -23,7 +23,9 @@
       <input type='file' class='input-file' id="imgInp">
       <!--<button class='input-btn upload' id='input_btn'><i class="fa fa-camera cam"></i></button>-->
      <img class="cover" id="blah" src="img/Linkedin cover.jpg">
-     <div class="dp-container"><img class="dp" src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg"></div>
+<div class="dp-container">
+  <img class="dp" id="profile-image" src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg">
+</div>
      <!--<button class='pen-btn upload'><i class="fa fa-pencil pen"></i></button>-->
 
 
@@ -49,12 +51,17 @@
          </ul>
      </div>
      </div>
-     <a href="https://www.linkedin.com/in/roei-redler">
-  <button class="but">Connect <i class="fa fa-user-plus"></i></button></a>
-     <a href="mailto:roei.redler@abra-it.com">
-  <button class="but1">Message <i class="fa fa-envelope"></i></button></a>
-     <a href="https://www.abra-it.com/">
-  <button class="but1">Company Website <i class="fa fa-globe"></i></button></a>
+<div class="button-container">
+  <a href="https://www.linkedin.com/in/roei-redler">
+    <button class="but">Connect <i class="fa fa-user-plus"></i></button>
+  </a>
+  <a href="mailto:roei.redler@abra-it.com">
+    <button class="but1">Message <i class="fa fa-envelope"></i></button>
+  </a>
+  <a href="https://www.abra-it.com/">
+    <button class="but1">Company Website <i class="fa fa-globe"></i></button>
+  </a>
+</div>
 
    </div>
    <!-- The Modal -->
@@ -117,6 +124,22 @@
       modal.style.display = "none";
     }
   }
+	    var images = [
+    "https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg",
+    "https://static.tildacdn.com/tild3963-3936-4466-a432-363632353461/d365.png","https://t3.ftcdn.net/jpg/01/04/04/58/360_F_104045830_VLb2Rwvv0t4Bl0NdtLptx7o1an5Ct6UF.webp"
+  ];
+
+  var imageIndex = 0;
+  var profileImage = document.getElementById("profile-image");
+
+  setInterval(function() {
+    profileImage.style.opacity = 0;
+    setTimeout(function() {
+      imageIndex = (imageIndex + 1) % images.length;
+      profileImage.src = images[imageIndex];
+      profileImage.style.opacity = 1;
+    }, 500);
+  }, 4000);
   </script>
 </body>
 </html>
