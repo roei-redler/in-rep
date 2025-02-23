@@ -8,16 +8,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .carousel-container {
-            transition: transform 0.3s ease-in-out;
-        }
-        .dot {
-            transition: all 0.3s ease;
-        }
-        .dot.active {
-            background-color: #2563eb;
-            width: 1.5rem;
-        }
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.infinite-scroll {
+    animation: scroll 15s linear infinite;
+    width: 300%; /* Make sure it's wide enough */
+}
+
+/* Pause animation on hover */
+.infinite-scroll:hover {
+    animation-play-state: paused;
+}
+
+.scroll-container {
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
     </style>
 </head>
 
@@ -28,71 +41,67 @@
             <img src="img/Linkedin cover.jpg" alt="Cover" class="w-full h-full object-cover">
             
             <!-- Technology Icons Container -->
-            <div class="absolute bottom-0 translate-y-full w-full">
-                <!-- Mobile Carousel -->
-                <div class="md:hidden relative px-8">
-                    <!-- Previous Button -->
-                    <button onclick="moveCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center text-blue-600 hover:bg-gray-50">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <!-- Icons Container -->
-                    <div class="overflow-hidden">
-                        <div id="carousel" class="carousel-container flex transition-transform duration-300 ease-in-out">
-                            <div class="flex-shrink-0 w-full flex justify-center space-x-2">
-                                <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
-                                    class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
-                                    alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
-                                    alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                            </div>
-                            <div class="flex-shrink-0 w-full flex justify-center space-x-2">
-                                <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
-                                    alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
-                                    alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                                <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
-                                    alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                            </div>
-                            <div class="flex-shrink-0 w-full flex justify-center space-x-2">
-                                <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
-                                    alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Next Button -->
-                    <button onclick="moveCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center text-blue-600 hover:bg-gray-50">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Dots Navigation -->
-                    <div class="flex justify-center mt-4 space-x-1">
-                        <button onclick="goToSlide(0)" class="dot h-2 w-6 rounded-full bg-gray-300"></button>
-                        <button onclick="goToSlide(1)" class="dot h-2 w-2 rounded-full bg-gray-300"></button>
-                        <button onclick="goToSlide(2)" class="dot h-2 w-2 rounded-full bg-gray-300"></button>
-                    </div>
-                </div>
-
-                <!-- Desktop View -->
-                <div class="hidden md:flex justify-center space-x-2">
+<div class="absolute bottom-0 translate-y-full w-full">
+    <!-- Mobile Scroll View -->
+    <div class="md:hidden">
+        <div class="scroll-container overflow-hidden">
+            <div class="infinite-scroll flex space-x-4">
+                <!-- First set of icons -->
+                <div class="flex space-x-4">
                     <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
-                        class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
-                        alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
-                        alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                     <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
-                        alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
-                        alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                     <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
-                        alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                     <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
-                        alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+                        alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                </div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="flex space-x-4">
+                    <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
+                        class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
+                        alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
+                        alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                    <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
+                        alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
+                        alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
+                        alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                    <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
+                        alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Desktop View -->
+    <div class="hidden md:flex justify-center space-x-2">
+        <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
+            class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
+            alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
+            alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+        <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
+            alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
+            alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+        <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
+            alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+        <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
+            alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
+    </div>
+</div>
         </div>
 
         <!-- Rest of the content remains unchanged -->
@@ -191,77 +200,22 @@
     </div>
 
     <script>
-        // Declare variables and functions in global scope
-        let currentSlide = 0;
-        const TOTAL_SLIDES = 3;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const SWIPE_THRESHOLD = 50;
-        
-        // Make functions global
-        window.toggleModal = function() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.toggle('hidden');
-        };
-        
-        window.moveCarousel = function(direction) {
-            currentSlide = (currentSlide + direction + TOTAL_SLIDES) % TOTAL_SLIDES;
-            updateCarousel();
-        };
-        
-        window.goToSlide = function(slideIndex) {
-            if (slideIndex >= 0 && slideIndex < TOTAL_SLIDES) {
-                currentSlide = slideIndex;
-                updateCarousel();
-            }
-        };
-        
-        function updateCarousel() {
-            const carousel = document.getElementById('carousel');
-            const dots = document.querySelectorAll('.dot');
-            
-            // Move carousel
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update dot indicators
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
+// Only modal functionality is needed
+document.addEventListener('DOMContentLoaded', function() {
+    // Modal functionality
+    const modal = document.getElementById('contactModal');
+    
+    window.toggleModal = function() {
+        modal.classList.toggle('hidden');
+    };
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.add('hidden');
         }
-        
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('contactModal');
-            const carousel = document.getElementById('carousel');
-            
-            // Close modal when clicking outside
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.add('hidden');
-                }
-            });
-        
-            // Touch event handlers
-            function handleTouchStart(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            }
-        
-            function handleTouchEnd(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                const swipeDistance = touchEndX - touchStartX;
-        
-                if (Math.abs(swipeDistance) > SWIPE_THRESHOLD) {
-                    moveCarousel(swipeDistance > 0 ? -1 : 1);
-                }
-            }
-        
-            // Add touch event listeners
-            carousel.addEventListener('touchstart', handleTouchStart);
-            carousel.addEventListener('touchend', handleTouchEnd);
-        
-            // Initialize carousel
-            updateCarousel();
-        });
-            </script>
+    });
+});
+    </script>
 </body>
 </html>
