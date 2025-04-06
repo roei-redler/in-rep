@@ -152,11 +152,18 @@
         <!-- Rest of the content remains unchanged -->
         <div class="px-6 -mt-20 relative pb-6">
             <!-- Profile Picture -->
-            <div class="inline-block">
-                <div class="w-36 h-36 rounded-full border-4 border-white shadow-md bg-white transition-transform hover:scale-105">
-                    <img src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg" alt="Profile" class="w-full h-full rounded-full object-cover" id="profile-image">
+            <div class="inline-block flip-wrapper">
+                <div id="flip-container" class="flip-container">
+                  <!-- Front Image -->
+                  <div class="flip-side">
+                    <img src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg" alt="Profile Front">
+                  </div>
+                  <!-- Back Image -->
+                  <div class="flip-side flip-back">
+                    <img src="https://avatars.githubusercontent.com/u/86727274?v=4" alt="Profile Back">
+                  </div>
                 </div>
-            </div>
+              </div>
 
             <!-- Two Column Layout -->
             <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -288,6 +295,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+const flipContainer = document.getElementById("flip-container");
+    let flipped = false;
+
+    function randomFlip() {
+      flipped = !flipped;
+      flipContainer.style.transform = flipped ? "rotateY(180deg)" : "rotateY(0deg)";
+      const nextFlipIn = Math.floor(Math.random() * 5000) + 3000; // 3s–8s
+      setTimeout(randomFlip, nextFlipIn);
+    }
+
+    setTimeout(randomFlip, 3000);
     </script>
 </body>
 </html>
