@@ -8,30 +8,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-.infinite-scroll {
-    animation: scroll 15s linear infinite;
-    width: 300%; /* Make sure it's wide enough */
-}
+        .infinite-scroll {
+            animation: scroll 15s linear infinite;
+            width: 300%; /* Make sure it's wide enough */
+        }
 
-/* Pause animation on hover */
-.infinite-scroll:hover {
-    animation-play-state: paused;
-}
+        /* Pause animation on hover */
+        .infinite-scroll:hover {
+            animation-play-state: paused;
+        }
 
-.scroll-container {
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-}
-.video-background {
+        .scroll-container {
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
@@ -69,6 +70,42 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        
+        /* Flipping profile styles */
+        .flip-wrapper {
+            perspective: 1000px;
+        }
+        
+        .flip-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s ease-in-out;
+            transform-style: preserve-3d;
+            border-radius: 9999px;
+        }
+        
+        .flip-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 9999px;
+            backface-visibility: hidden;
+        }
+        
+        .flip-back {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-side img {
+            width: 100%;
+            height: 100%;
+            border-radius: 9999px;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -86,84 +123,84 @@
             <img src="img/Linkedin cover.jpg" alt="Cover" class="w-full h-full object-cover">
             
             <!-- Technology Icons Container -->
-<div class="absolute bottom-0 translate-y-full w-full">
-    <!-- Mobile Scroll View -->
-    <div class="md:hidden">
-        <div class="scroll-container overflow-hidden">
-            <div class="infinite-scroll flex space-x-4">
-                <!-- First set of icons -->
-                <div class="flex space-x-4">
-                    <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
-                        class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
-                        alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
-                        alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
-                    <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
-                        alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
-                        alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
-                        alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
-                    <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
-                        alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+            <div class="absolute bottom-0 translate-y-full w-full">
+                <!-- Mobile Scroll View -->
+                <div class="md:hidden">
+                    <div class="scroll-container overflow-hidden">
+                        <div class="infinite-scroll flex space-x-4">
+                            <!-- First set of icons -->
+                            <div class="flex space-x-4">
+                                <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
+                                    class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
+                                    alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
+                                    alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
+                                    alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
+                                    alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
+                                    alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
+                                    alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                            </div>
+                            <!-- Duplicate set for seamless loop -->
+                            <div class="flex space-x-4">
+                                <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
+                                    class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
+                                    alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
+                                    alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
+                                    alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
+                                    alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
+                                    alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                                <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
+                                    alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Duplicate set for seamless loop -->
-                <div class="flex space-x-4">
+
+                <!-- Desktop View -->
+                <div class="hidden md:flex justify-center space-x-2">
                     <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
-                        class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
-                        alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
-                        alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                     <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
-                        alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
-                        alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                     <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
-                        alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                     <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
-                        alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex-shrink-0">
+                        alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Desktop View -->
-    <div class="hidden md:flex justify-center space-x-2">
-        <img src="https://www.u2u.be/images/technologies/power-platform.png" alt="Power Platform"
-            class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Dynamics365-color.svg/240px-Dynamics365-color.svg.png" 
-            alt="Dynamics 365" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/1024px-Github-desktop-logo-symbol.svg.png" 
-            alt="github" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-        <img src="https://www.computerhope.com/jargon/m/mscopilot.png" 
-            alt="copilot" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/2097px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png" 
-            alt="sharepoint" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-        <img src="https://cdn.iconscout.com/icon/free/png-256/free-azure-devops-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-1-pack-logos-icons-3029870.png?f=webp&w=256" 
-            alt="azuredevops" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-        <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" 
-            alt="python" class="w-12 h-12 p-2 bg-white rounded-lg shadow-md">
-    </div>
-</div>
         </div>
 
         <!-- Rest of the content remains unchanged -->
         <div class="px-6 -mt-20 relative pb-6">
-            <!-- Profile Picture -->
+            <!-- Profile Picture with flip effect -->
             <div class="inline-block flip-wrapper">
-                <div id="flip-container" class="flip-container">
-                  <!-- Front Image -->
-                  <div class="flip-side">
-                    <img src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg" alt="Profile Front">
-                  </div>
-                  <!-- Back Image -->
-                  <div class="flip-side flip-back">
-                    <img src="https://avatars.githubusercontent.com/u/86727274?v=4" alt="Profile Back">
-                  </div>
+                <div id="flip-container" class="flip-container w-36 h-36 rounded-full shadow-md">
+                    <!-- Front Image -->
+                    <div class="flip-side">
+                        <img src="https://marketplace.canva.com/EAFEits4-uw/1/0/800w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-r0bPCSjUqg0.jpg" alt="Profile Front">
+                    </div>
+                    <!-- Back Image -->
+                    <div class="flip-side flip-back">
+                        <img src="https://avatars.githubusercontent.com/u/86727274?v=4" alt="Profile Back">
+                    </div>
                 </div>
-              </div>
+            </div>
 
             <!-- Two Column Layout -->
             <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
