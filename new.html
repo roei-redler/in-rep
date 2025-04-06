@@ -179,7 +179,7 @@
                     <!-- Action Buttons -->
                     <div class="flex flex-wrap gap-3 mt-4">
                         <!-- Connect button linking to a mailto link -->
-                        <a href="linkedin.com/in/roei-redler" class="px-4 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
+                        <a href="https://linkedin.com/in/roei-redler" class="px-4 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
                             <i class="fas fa-user-plus"></i>
                             Connect
                         </a>
@@ -226,51 +226,50 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <!-- <div class="bg-white rounded-2xl p-8 max-w-md w-full relative">
-            <h2 class="text-xl font-semibold">Contact Information</h2>
-            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="mt-6 space-y-3">
-                <p class="flex items-center gap-3 text-gray-600">
-                    <i class="fas fa-envelope"></i>
-                    roei.redler@abra-it.com
-                </p>
-                <p class="flex items-center gap-3 text-gray-600">
-                    <i class="fas fa-link"></i>
-                    linkedin.com/in/roei-redler
-                </p>
-                <p class="flex items-center gap-3 text-gray-600">
-                    <i class="fas fa-globe"></i>
-                    abra-it.com
-                </p>
-            </div>
-        </div>-->
-             <!-- Modal content -->
-     <div class="modal-content">
-        <span class="close">&times;</span>
-        <center><H3>Roei Redler</H3>
-       <h4>Joining Date: 01/08/2022</h4>
-       <a href="https://www.credly.com/badges/71d3482b-863f-4851-a8b9-b3d3787aeb52/linked_in_profile" target="_blank" class="github-link">
-         <img src="https://www.flexmind.co/wp-content/uploads/2022/09/power-platform-solutions-architect-expert-420x420-1.png" alt="GitHub Icon" class="github-icon2">
- 
-       </a><br>Microsoft Power Platform Solution Architect</center>
- <hr>
- 
-     <center>
-      <a href="https://github.com/roei-redler" target="_blank" class="github-link">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="GitHub Icon" class="github-icon">
-        GitHub
-      </a>
-      <br><br>
-      <a href="https://outlook.office.com/bookwithme/user/308f90ee9eec472a90aa07d542f6f6ab@abra-it.com?anonymous&ep=pcard" target="_blank" class="github-link">
-        <img src="https://shortcutshari.com/wp-content/uploads/2018/05/logo_ms_bookings.png" alt="GitHub Icon" class="github-icon">
-        Booking
-      </a></center>
+<!-- Modal -->
+<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <!-- Modal content -->
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full relative shadow-lg">
+      <!-- Close button -->
+      <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">
+        &times;
+      </button>
+  
+      <!-- Header -->
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold text-gray-800">Roei Redler</h3>
+        <h4 class="text-sm text-gray-500 mt-1">Joining Date: 01/08/2022</h4>
+  
+        <!-- Certification Badge -->
+        <a href="https://www.credly.com/badges/71d3482b-863f-4851-a8b9-b3d3787aeb52/linked_in_profile" target="_blank" class="inline-block mt-4">
+          <img src="https://www.flexmind.co/wp-content/uploads/2022/09/power-platform-solutions-architect-expert-420x420-1.png"
+            alt="Microsoft Certification Badge" class="w-24 h-24 mx-auto rounded-md" />
+        </a>
+        <p class="mt-2 text-sm text-gray-600">Microsoft Power Platform Solution Architect</p>
+      </div>
+  
+      <hr class="my-4">
+  
+      <!-- Links -->
+      <div class="text-center space-y-4">
+        <!-- GitHub -->
+        <a href="https://github.com/roei-redler" target="_blank" class="inline-flex items-center gap-2 text-blue-600 hover:underline">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="GitHub"
+            class="w-6 h-6">
+          GitHub
+        </a>
+  
+        <!-- Booking -->
+        <a href="https://outlook.office.com/bookwithme/user/308f90ee9eec472a90aa07d542f6f6ab@abra-it.com?anonymous&ep=pcard"
+          target="_blank" class="inline-flex items-center gap-2 text-blue-600 hover:underline">
+          <img src="https://shortcutshari.com/wp-content/uploads/2018/05/logo_ms_bookings.png" alt="Booking"
+            class="w-6 h-6">
+          Booking
+        </a>
       </div>
     </div>
+  </div>
+  
 
     <script>
 // Only modal functionality is needed
